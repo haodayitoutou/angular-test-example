@@ -6,7 +6,7 @@ jobs:
       - image: circleci/node:10-browsers
     steps:
       - checkout
-      - restore_cache
+      - restore_cache:
         key: test-example-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
