@@ -6,3 +6,5 @@ config.capabilities = {
         args: ['--headless', '--no-sandbox']
     }
 };
+
+exports.config = config;
