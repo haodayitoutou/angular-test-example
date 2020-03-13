@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Component } from '@angular/core';
 import { of } from 'rxjs';
 
 @Injectable()
@@ -26,5 +26,24 @@ export class MasterService {
 
     getValue() {
         return this.valueService.getValue();
+    }
+}
+
+@Component({
+    selector: 'app-lightswitch-comp',
+    template: `
+        <button (click)="clicked()">Click me!</button>
+        <span>{{message}}</span>
+    `
+})
+export class LightswitchComponent {
+    isOn = false;
+
+    clicked() {
+        this.isOn = !this.isOn;
+    }
+
+    get message() {
+        return `The light is ${this.isOn ? 'On' : 'Off'}`;
     }
 }
