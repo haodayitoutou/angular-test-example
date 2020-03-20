@@ -95,11 +95,9 @@ describe('WelcomeComponent', () => {
         expect(content).toMatch(/log in/i, '"log in"');
     });
 
-    it('should inject the component\'s UserService instance', () => {
-        inject([UserService], (service: UserService) => {
-            expect(service).toBe(compUserService);
-        });
-    });
+    it('should inject the component\'s UserService instance', inject([UserService], (service: UserService) => {
+        expect(service).toBe(compUserService);
+    }));
 
     it('TestBed and Component UserService should be the same', () => {
         expect(userService === compUserService).toBe(true);
